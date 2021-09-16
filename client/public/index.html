@@ -4,18 +4,31 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
     <script
       src="https://cdn.socket.io/4.1.2/socket.io.min.js"
       integrity="sha384-toS6mmwu70G0fw54EGlWWeA4z3dyJ+dlXBtSURSKN4vyRFOcxd3Bzjj/AoOwY+Rg"
       crossorigin="anonymous"
     ></script>
-   <link rel="stylesheet" href="../styles/home.css">
+    <link rel="stylesheet" href="../styles/home.css" />
     <title>cellControl</title>
   </head>
   <body>
-    <div id="qrcode-2"></div>
+    <main>
+      <div class="container">
+        <h1>bem vindo</h1>
+        <div class="qrCodeContainer">
+          <div id="qrcode-2"></div>
+        </div>
+      </div>
+    </main>
 
     <div id="todasMenssagens" class="todasMenssagens"></div>
     <script src="../scripts/connect.js"></script>
