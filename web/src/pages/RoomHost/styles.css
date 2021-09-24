@@ -1,0 +1,23 @@
+.roomHost-container,
+.roomHost-container main {
+  max-height: 100%;
+  max-width: 100%;
+  width: 100vw;
+  height: 100vh;
+
+  background: linear-gradient(#242f41, #232f42, #232f43, #223045, #213046);
+}
+
+.roomHost-container main ul {
+  height: 80%;
+  width: 90%;
+
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+  
+  flex-wrap: wrap;
+  gap: 24px;
+
+  overflow-y: auto;
+}

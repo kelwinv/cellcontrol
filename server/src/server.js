@@ -25,10 +25,10 @@ const io = new Server(server, options)
 const allHosts = []
 
 io.on('connection', socket => {
-  socket.on('createRoom', ({ hostName, roomId }) => {
+  socket.on('createRoom', ({ hostName, roomId, baseUrl }) => {
     socket.join(roomId)
 
-    console.log(`> host: ${hostName} created new room in /JoinedRoom/${roomId}`)
+    console.log(`> host: ${hostName} created new room in ${baseUrl}`)
 
     socket.hostName = hostName
     socket.roomId = roomId

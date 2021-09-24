@@ -1,0 +1,90 @@
+.home-container {
+  display: flex;
+  justify-content: center;
+  max-height: 100%;
+  height: 100vh;
+
+  background-image: radial-gradient(
+    circle,
+    #242f41,
+    #232f42,
+    #232f43,
+    #223045,
+    #213046
+  );
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  margin: auto;
+  gap: 32px;
+}
+
+main h1 {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #d99d1c;
+}
+
+main h2 {
+  color: #d99d1c;
+}
+
+main form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 12px;
+
+  width: 80%;
+}
+
+main form input {
+  width: 80%;
+  height: 46px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  padding-left: 12px;
+}
+
+main form input:focus {
+  border: solid 3px #d99d1cd0;
+}
+
+main form input.error {
+  border: solid 3px #d91c1cd0;
+}
+
+main form span {
+  color: #ff6363;
+  font-size: 1rem;
+}
+
+main form button {
+  width: 30%;
+  height: 46px;
+  border: none;
+  border-radius: 8px;
+
+  color: #242f41;
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+main form button:hover {
+  opacity: 0.8;
+}
+
+main .qrCodeContainer {
+  padding: 12px;
+  border: solid #1a191c 8px;
+  border-radius: 12px;
+  background: #ffffff;
+}
