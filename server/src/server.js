@@ -22,21 +22,48 @@ const options = {
 
 const io = new Server(server, options)
 
+const allHosts = []
+
 io.on('connection', socket => {
-  socket.on('createRoom', () => {
-    const roomName = `room-${socket.id}`
+  socket.on('createRoom', ({ hostName, roomId }) => {
+    socket.join(roomId)
 
-    socket.join(roomName)
+    console.log(`> host: ${hostName} created new room in /JoinedRoom/${roomId}`)
 
-    io.to(socket.id).emit('roomCreated', roomName)
+    socket.hostName = hostName
+    socket.roomId = roomId
+
+    allHosts.push({ hostName, roomId })
   })
 
-  socket.on('joinInRoom', roomName => {
-    socket.join(roomName)
+  socket.on('joinInRoom', roomId => {
+    socket.join(roomId)
+    console.log(`> user: ${socket.id} joined in ${roomId}`)
 
-    io.to(roomName).emit('userIntoInRoom', {
-      message: 'novo usuario entrou na sala'
-    })
+    io.to(roomId).emit('userIntoInRoom')
+  })
+
+  socket.on('reeconectIfnotConnected', roomId => {
+    if (socket.roomId !== roomId) {
+      const host = allHosts.find(socket => socket.roomId === socket.roomId)
+
+      if (!host) return
+
+      socket.hostName = host.hostName
+      socket.roomId = host.roomId
+
+      socket.join(roomId)
+      console.log(`> host: ${socket.hostName} reconnected in ${socket.roomId}`)
+    }
+  })
+
+  socket.on('changeColor', (newColor, roomId) => {
+    io.to(roomId).emit('newColor', newColor)
+  })
+
+  socket.on('sendName', ({ name, room }) => {
+    console.log(name)
+    io.to(room).emit('newName', name)
   })
 })
 
